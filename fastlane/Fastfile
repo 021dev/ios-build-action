@@ -1,6 +1,6 @@
 default_platform(:ios)
 
-platf@@@orm :ios do
+platform :ios do
   before_all do
     keychain_password = '12345678'
 
@@ -54,11 +54,12 @@ platf@@@orm :ios do
       export_method: ENV['EXPORT_METHOD'],
       export_team_id: ENV['TEAM_ID'],
       silent: true,
-      export_options: ENV['IOS_APP_ID'] != nil ? {
+     export_options: {
         provisioningProfiles: {
           "#{ENV['IOS_APP_ID']}" => "match AppStore #{ENV['IOS_APP_ID']}",
         },
-      } : nil
+        teamID: ENV['TEAM_ID']
+      }
     )
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
