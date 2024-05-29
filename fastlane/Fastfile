@@ -1,5 +1,24 @@
 default_platform(:ios)
 
+def dump_env_vars
+  UI.message("=== Environment Variables ===")
+  UI.message("APPLE_KEY_ID: #{ENV['APPLE_KEY_ID']}")
+  UI.message("APPLE_KEY_ISSUER_ID: #{ENV['APPLE_KEY_ISSUER_ID']}")
+  UI.message("APPLE_KEY_CONTENT: #{ENV['APPLE_KEY_CONTENT']}")
+  UI.message("PROJECT_NAME: #{ENV['PROJECT_NAME']}")
+  UI.message("IOS_APP_ID: #{ENV['IOS_APP_ID']}")
+  UI.message("TEAM_ID: #{ENV['TEAM_ID']}")
+  UI.message("MATCH_BUILD_TYPE: #{ENV['MATCH_BUILD_TYPE']}")
+  UI.message("INCREMENT_BUILD_NUMBER: #{ENV['INCREMENT_BUILD_NUMBER']}")
+  UI.message("WORKSPACE_PATH: #{ENV['WORKSPACE_PATH']}")
+  UI.message("PROJECT_PATH: #{ENV['PROJECT_PATH']}")
+  UI.message("CONFIGURATION: #{ENV['CONFIGURATION']}")
+  UI.message("SCHEME: #{ENV['SCHEME']}")
+  UI.message("OUTPUT_PATH: #{ENV['OUTPUT_PATH']}")
+  UI.message("EXPORT_METHOD: #{ENV['EXPORT_METHOD']}")
+  UI.message("===========================")
+end
+
 platform :ios do
   before_all do
     keychain_password = '12345678'
@@ -22,6 +41,7 @@ platform :ios do
 
   desc "Build"
   lane :build do
+    dump_env_vars
     api_key = app_store_connect_api_key(
       key_id: ENV['APPLE_KEY_ID'],
       issuer_id: ENV['APPLE_KEY_ISSUER_ID'],
