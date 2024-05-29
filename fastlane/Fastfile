@@ -63,6 +63,11 @@ platform :ios do
       )
     end
 
+    update_project_team(
+      path: "apps/expo/ios/UseVerbBeta.xcodeproj",
+      teamid: ENV['TEAM_ID']
+    )
+
     build_app(
       workspace: use_workspace ? ENV['WORKSPACE_PATH'] : nil,
       project: !use_workspace ? ENV['PROJECT_PATH'] : nil,
