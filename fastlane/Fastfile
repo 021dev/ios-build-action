@@ -64,7 +64,7 @@ platform :ios do
     end
 
     update_project_team(
-      path: "apps/expo/ios/UseVerbBeta.xcodeproj",
+      path: "apps/expo/ios/UseVerbAlpha.xcodeproj",
       targets: ENV['PROJECT_NAME'],
       teamid: ENV['TEAM_ID']
     )
@@ -84,7 +84,6 @@ platform :ios do
         provisioningProfiles: {
           "#{ENV['IOS_APP_ID']}" => "match AppStore #{ENV['IOS_APP_ID']}",
         },
-        teamID: ENV['TEAM_ID']
       }
     )
 
