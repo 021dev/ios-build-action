@@ -64,7 +64,7 @@ platform :ios do
     end
 
     update_project_team(
-      path: "apps/expo/ios/UseVerbAlpha.xcodeproj",
+      path: "apps/expo/ios/#{ENV['PROJECT_NAME']}.xcodeproj",
       targets: ENV['PROJECT_NAME'],
       teamid: ENV['TEAM_ID']
     )
